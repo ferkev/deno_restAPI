@@ -34,7 +34,7 @@ const getProducts = ({ response }: { response: any}) => {
 }
 
 /**
- * @param { number } productId
+ * @param { string } productId
  * @desc get one products
  * @route GET /api/v1/product/:productID
  */
@@ -87,7 +87,7 @@ const addProduct = async ({ request, response }: { request: any, response: any})
 }
 
 /**
- * 
+ * @param { string } productId
  * @desc get update product
  * @route PUT /api/v1/updateProduct/:productId
  */
@@ -98,8 +98,6 @@ const updateProduct = async ({ params, request, response }: { params: { productI
   const product: Product | undefined = products.find((product: Product) => {
     return product.id === productId;
   })
-
-  console.log(product);
 
   if (!product) {
     response.status = 404;
